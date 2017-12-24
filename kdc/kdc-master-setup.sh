@@ -1,11 +1,11 @@
 ## How to execute the script
-## USAGE: sh /home/ec2-user/InstallationDocuments/kdc/kdc-master-setup.sh /home/ec2-user/InstallationDocuments/common/env_qa.properties
-## USAGE: sh /home/ec2-user/InstallationDocuments/kdc/kdc-master-setup.sh /home/ec2-user/InstallationDocuments/common/env_qa.properties
+## USAGE: sh /home/ec2-user/InstallationDocuments/kdc/kdc-master-setup.sh /home/ec2-user/InstallationDocuments/common/env_devint.properties
+## USAGE: sh /home/ec2-user/InstallationDocuments/kdc/kdc-master-setup.sh /home/ec2-user/InstallationDocuments/common/env_devint.properties
 
 if [ "$#" -ne 1 ]; then
   echo "Please provide right number of arguments"
   echo "Usage: sh kdc-master-setup.sh env_prop_file_location"
-  echo "Example: sh /home/ec2-user/InstallationDocuments/common/kdc-master-setup.sh /home/ec2-user/InstallationDocuments/common/env_qa.properties" 
+  echo "Example: sh /home/ec2-user/InstallationDocuments/common/kdc-master-setup.sh /home/ec2-user/InstallationDocuments/common/env_devint.properties" 
   exit 1
 fi
 
@@ -48,9 +48,9 @@ awk -F, '{ print "addprinc  -randkey ", $1 }' < $kdc_dir/principal_names | kadmi
 awk -F, '{ print "ktadd -k ", $2," ", $1 }' < $kdc_dir/principal_names | kadmin.local
 
 ## All the below steps are required for slave to be in sync with master
-mkdir -p /nyl/scripts/
+mkdir -p /misc/scripts/
 #sh $common_dir/template_to_original.sh $env_prop_file $kdc_dir/kpropd.acl.template > /var/kerberos/krb5kdc/kpropd.acl
-sh $common_dir/template_to_original.sh $env_prop_file $kdc_dir/kdc_dump.sh.template > /nyl/scripts/kdc_dump.sh
+sh $common_dir/template_to_original.sh $env_prop_file $kdc_dir/kdc_dump.sh.template > /misc/scripts/kdc_dump.sh
 
 ## Rename keytab
 mv $KEYTABS_DIR/kdc1.keytab /etc/krb5.keytab

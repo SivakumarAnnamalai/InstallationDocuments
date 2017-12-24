@@ -37,9 +37,9 @@ mkdir -p $KEYTABS_DIR
 kdb5_util -r $REALM create -s -P $KDC_MASTER_KEY
 
 ## All the below steps are required for slave to be in sync with master
-mkdir -p /nyl/scripts/
+mkdir -p /misc/scripts/
 sh $common_dir/template_to_original.sh $env_prop_file $kdc_dir/kpropd.acl.template >/var/kerberos/krb5kdc/kpropd.acl 
-sh $common_dir/template_to_original.sh $env_prop_file $kdc_dir/kdc_dump.sh.template >/nyl/scripts/kdc_dump.sh 
+sh $common_dir/template_to_original.sh $env_prop_file $kdc_dir/kdc_dump.sh.template >/misc/scripts/kdc_dump.sh 
 
 ## Manual steps to be done
 ## Rename keytab. Copy kdc2.keytab from kdc1 host. Below keytab and the dump has to be copied from KDC master
