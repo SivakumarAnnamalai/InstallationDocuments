@@ -1,0 +1,8 @@
+kafka/kafka1.${DNS},${KEYTABS_DIR}/kafka1.keytab
+kafka/kafka2.${DNS},${KEYTABS_DIR}/kafka2.keytab
+kafka/kafka3.${DNS},${KEYTABS_DIR}/kafka3.keytab
+zookeeper/zk1.${DNS},${KEYTABS_DIR}/zk1.keytab
+zookeeper/zk2.${DNS},${KEYTABS_DIR}/zk2.keytab
+zookeeper/zk3.${DNS},${KEYTABS_DIR}/zk3.keytab
+host/kdc1.${DNS},${KEYTABS_DIR}/kdc1.keytab
+host/kdc2.${DNS},${KEYTABS_DIR}/kdc2.keytab

@@ -1,0 +1,8 @@
+#!/bin/sh
+#kdclist="kdc1.${DNS} kdc2.${DNS}"
+kdb5_util dump /var/tmp/slave_datatrans
+kprop -f /var/tmp/slave_datatrans kdc2.${DNS}
+#for kdc in $kdclist
+#do
+#    kprop -f /var/tmp/slave_datatrans $kdc
+#done

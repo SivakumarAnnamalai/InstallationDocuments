@@ -1,0 +1,23 @@
+[kdcdefaults]
+ kdc_ports = 88
+ kdc_tcp_ports = 88
+
+[realms]
+ ${REALM} = {
+  #master_key_type = aes256-cts
+  acl_file = /var/kerberos/krb5kdc/kadm5.acl
+  dict_file = /usr/share/dict/words
+  #key_stash_file = /var/kerberos/krb5kdc/.k5.DBAR.
+  max_life = 10h 0m 0s
+  max_renewable_life = 7d 0h 0m 0s
+  admin_keytab = /var/kerberos/krb5kdc/kadm5.keytab
+  #supported_enctypes = aes256-cts:normal aes128-cts:normal des3-hmac-sha1:normal arcfour-hmac:normal camellia256-cts:normal camellia128-cts:normal des-hmac-sha1:normal des-cbc-md5:normal des-cbc-crc:normal
+  supported_enctypes =  aes256-cts-hmac-sha1-96:normal aes128-cts-hmac-sha1-96:normal arcfour-hmac-md5:normal
+
+ }
+
+[logging]
+ kdc = FILE:/var/log/krb5kdc.log
+ admin_server = FILE:/var/log/kadmind.log
+ default = FILE:/var/log/krb5lib.log
+
